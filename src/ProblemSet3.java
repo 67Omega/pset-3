@@ -126,7 +126,27 @@ System.out.println("Enter three integers. \n");
      */
     
     public void gpa() {
-
+System.out.print("Enter a letter grade: ");
+    String letterGrade = in.next();
+    String uppercaseLetterGrade = letterGrade.toUpperCase();
+    char gradeLetter = uppercaseLetterGrade.charAt(0);
+    String newGradeLetter = Character.toString(gradeLetter);
+    char gradeMark = uppercaseLetterGrade.charAt(1);
+    String newGradeMark = Character.toString(gradeMark);
+    double aScore = 4.00; 
+    double bScore = 3.00;
+    double cScore = 2.00;
+    double dScore = 1.00;
+    double fScore = 0.00;
+    double plusScore = 0.33;
+    double minusScore = (-0.33);
+    System.out.println();
+    if (newGradeLetter.equals("A")) {
+      double letterScore = aScore;
+      double signScore = 0;
+      double gpa = letterScore + signScore;
+      System.out.println("Your GPA is " + gpa +".\n");
+    } 
     }
     
     /*
