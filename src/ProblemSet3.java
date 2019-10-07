@@ -49,7 +49,15 @@ public class ProblemSet3 {
      */
     
     public void sign() {
-
+System.out.print("\nEnter an integer: ");
+    int signNumber = in.nextInt();
+    System.out.println();
+    if (signNumber > 0) {
+      System.out.println("Positive.\n");
+    } else if (signNumber < 0) {
+      System.out.println("Negative.\n");
+    } else {
+      System.out.println("Zero.\n");
     }
     
     /*
@@ -59,7 +67,13 @@ public class ProblemSet3 {
      */
     
     public void parity() {
-
+System.out.print("Enter an integer: ");
+    int evoNumber = in.nextInt();
+    System.out.println();
+    if (evoNumber % 2 == 0) {
+      System.out.println("Even.\n");
+    } else {
+      System.out.println("Odd.\n");
     }
     
     /*
@@ -69,7 +83,40 @@ public class ProblemSet3 {
      */
     
     public void ordered() {
-
+System.out.println("Enter three integers. \n");
+    System.out.print("Enter first integer: ");
+    int orderNumberOne = in.nextInt();
+    System.out.print("Enter second integer: ");
+    int orderNumberTwo = in.nextInt();
+    System.out.print("Enter third integer: ");
+    int orderNumberThree = in.nextInt();
+    System.out.println();
+    if (orderNumberOne < orderNumberTwo) {
+      if (orderNumberTwo < orderNumberThree) {
+        System.out.println("Strictly increasing.\n");
+      } else if (orderNumberTwo == orderNumberThree) {
+        System.out.println("Increasing.\n");
+      } else {
+        System.out.println("Unordered.\n");
+      }
+      
+    } else if (orderNumberOne == orderNumberTwo) {
+      if (orderNumberTwo == orderNumberThree) {
+        System.out.println("Same.\n");
+      } else if (orderNumberTwo < orderNumberThree) {
+        System.out.println("Increasing.\n");
+      } else {
+        System.out.println("Decreasing.\n");
+      }
+    } else {
+      if (orderNumberTwo > orderNumberThree) {
+        System.out.println("Strictly decreasing.\n");
+      } else if (orderNumberTwo == orderNumberThree) {
+        System.out.println("Decreasing.\n");
+      } else {
+        System.out.println("Unordered.\n");
+      }
+    }
     }
     
     /*
