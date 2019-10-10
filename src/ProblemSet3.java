@@ -129,9 +129,15 @@ System.out.println("Enter three integers. \n");
 System.out.print("Enter a letter grade: ");
     String letterGrade = in.next();
     String uppercaseLetterGrade = letterGrade.toUpperCase();
+    char gradeMark;
+    int gradeLength = uppercaseLetterGrade.length();
     char gradeLetter = uppercaseLetterGrade.charAt(0);
     String newGradeLetter = Character.toString(gradeLetter);
-    char gradeMark = uppercaseLetterGrade.charAt(1);
+    if (gradeLength == 2) {
+      gradeMark = uppercaseLetterGrade.charAt(1);
+    } else {
+      gradeMark = 0;
+    }
     String newGradeMark = Character.toString(gradeMark);
     double aScore = 4.00; 
     double bScore = 3.00;
@@ -140,13 +146,44 @@ System.out.print("Enter a letter grade: ");
     double fScore = 0.00;
     double plusScore = 0.33;
     double minusScore = (-0.33);
+    double letterScore = 0;
+    double signScore = 0;
+    boolean scoreValid = true;
     System.out.println();
     if (newGradeLetter.equals("A")) {
-      double letterScore = aScore;
-      double signScore = 0;
+      letterScore = aScore;
+    } else if (newGradeLetter.equals("B")) {
+      letterScore = bScore;
+    } else if (newGradeLetter.equals("C")) {
+      letterScore = cScore;
+    } else if (newGradeLetter.equals("D")) {
+      letterScore = dScore;
+    } else if (newGradeLetter.equals("F")) {
+      letterScore = fScore;
+    } else {
+      scoreValid = false;
+    }
+    if (newGradeMark.equals("+")) {
+      signScore = plusScore;
+    } else if (newGradeMark.equals("-")) {
+      signScore = minusScore;
+    } else if (newGradeMark.equals("")){
+      signScore = 0;
+    } else {
+      scoreValid = false;
+    }
+    if (newGradeLetter.equals("A")) {
+      signScore = 0;
+    }
+    if ((newGradeLetter.equals("F"))&&!(newGradeMark.equals(0))) {
+      scoreValid = false;
+    }
+    if (scoreValid == false) {
+      System.out.println("That's not a valid letter grade.\n");
+    } else if (scoreValid == true) {
       double gpa = letterScore + signScore;
       System.out.println("Your GPA is " + gpa +".\n");
-    } 
+    }	
     }
     
     /*
