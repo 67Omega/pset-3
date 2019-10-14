@@ -326,7 +326,29 @@ System.out.print("Enter a card: ");
      */
     
     public void leapYear() {
-
+System.out.print("Enter a year: ");
+    int yearToTest = in.nextInt();
+    boolean isLeapYear = false;
+    boolean fourTest = (yearToTest % 4 == 0);
+    boolean hundredTest = (yearToTest % 100 == 0);
+    boolean fourHundredTest = (yearToTest % 400 == 0);
+    System.out.println();
+    if (fourTest = true) {
+      if ((hundredTest == true) && (fourHundredTest == true)) {
+        isLeapYear = true;
+      } else if (hundredTest == true) {
+        isLeapYear = false;
+      } else {
+        isLeapYear = true;
+      }
+    } else {
+      isLeapYear = false;
+    }
+    if (isLeapYear == true) {
+      System.out.println(yearToTest + " is a leap year.\n");
+    } else {
+      System.out.println(yearToTest + " is not a leap year.\n");
+    }
     }
     
     /*
@@ -337,7 +359,39 @@ System.out.print("Enter a card: ");
      */
     
     public void state() {
-
+System.out.print("Enter a temperature: ");
+    int waterTemp = in.nextInt();
+    String waterState;
+    System.out.print("Enter a scale: ");
+    String tempScale = in.next();
+    String temperatureScale = tempScale.toUpperCase();
+    boolean isValidScale = true;
+    System.out.println();
+    if (temperatureScale.equals("F")) {
+      if (waterTemp <= 32) {
+        waterState = "Solid.\n";
+      } else if ((waterTemp > 32) && (waterTemp < 212)) {
+        waterState = "Liquid.\n";
+      } else {
+        waterState = "Gas.\n";
+      }
+    } else if (temperatureScale.equals("C")) {
+      if (waterTemp <= 0) {
+        waterState = "Solid.\n";
+      } else if ((waterTemp > 0) && (waterTemp < 100)) {
+        waterState = "Liquid.\n";
+      } else {
+        waterState = "Gas.\n";
+      }
+    } else {
+      isValidScale = false;
+      waterState = null;
+    }
+    if (isValidScale == true) {
+      System.out.println(waterState);
+    } else {
+      System.out.println("That's not a valid scale.\n");
+    }
     }
     
     /*
