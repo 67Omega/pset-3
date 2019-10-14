@@ -175,14 +175,17 @@ System.out.print("Enter a letter grade: ");
     if (newGradeLetter.equals("A")) {
       signScore = 0;
     }
-    if ((newGradeLetter.equals("F"))&&!(newGradeMark.equals(0))) {
+    if ((newGradeLetter.equals("F"))&&!(newGradeMark.isEmpty())) {
       scoreValid = false;
+    }
+    if (uppercaseLetterGrade.equals("F")) {
+      scoreValid = true;
     }
     if (scoreValid == false) {
       System.out.println("That's not a valid letter grade.\n");
     } else if (scoreValid == true) {
       double gpa = letterScore + signScore;
-      System.out.println("Your GPA is " + gpa +".\n");
+      System.out.printf("Your GPA is %.2f.\n", gpa);
     }	
     }
     
@@ -193,7 +196,35 @@ System.out.print("Enter a letter grade: ");
      */
     
     public void grade() {
-
+System.out.print("Enter a grade: ");
+    double numberGrade = in.nextDouble();
+    boolean gradeValidity = true;
+    String letterGrade;
+    String article;
+    System.out.println();
+    if (numberGrade > 100) {
+    System.out.println("Grades above 100 are invalid.\n");
+  } else if (numberGrade < 0) {
+    System.out.println("Grades below 0 are invalid.\n");
+  } else {
+    if (numberGrade >= 90){
+      letterGrade = "A";
+      article = "an";
+    } else if (numberGrade >= 80){
+      letterGrade = "B";
+      article = "a";
+    } else if (numberGrade >= 70){
+      letterGrade = "C";
+      article = "a";
+    } else if (numberGrade >= 60){
+      letterGrade = "D";
+      article = "a";
+    } else {
+      letterGrade = "F";
+      article = "an";
+    }
+    System.out.println("You received " + article + " " + letterGrade + ".\n");
+  }
     }
     
     /*
@@ -203,7 +234,89 @@ System.out.print("Enter a letter grade: ");
      */
     
     public void cards() {
-
+System.out.print("Enter a card: ");
+    String cardLetters = in.next();
+    String capCardLetters = cardLetters.toUpperCase();
+    boolean suitValidity = true;
+    boolean rankValidity = true;
+    char cardRankLetter = capCardLetters.charAt(0);
+    String rankLetter = Character.toString(cardRankLetter);
+    char cardSuitLetter = capCardLetters.charAt(1);
+    String suitLetter = Character.toString(cardSuitLetter);
+    String cardRank;
+    String cardSuit;
+    System.out.println();
+    switch (rankLetter) {
+      case "2":
+        cardRank = "Two";
+        break;
+      case "3":
+        cardRank = "Three";
+        break;
+      case "4":
+        cardRank = "Four";
+        break;
+      case "5":
+        cardRank = "Five";
+        break;
+      case "6":
+        cardRank = "Six";
+        break;
+      case "7":
+        cardRank = "Seven";
+        break;
+      case "8":
+        cardRank = "Eight";
+        break;
+      case "9":
+        cardRank = "Nine";
+        break;
+      case "T":
+        cardRank = "Ten";
+        break;
+      case "J":
+        cardRank = "Jack";
+        break;
+      case "Q":
+        cardRank = "Jack";
+        break;
+      case "K":
+        cardRank = "King";
+        break;
+      case "A":
+        cardRank = "Ace";
+        //hey that's me i'm ace
+        break;
+      default:
+        rankValidity = false;
+        cardRank = null;
+        break;
+    }
+    switch (suitLetter) {
+      case "C":
+        cardSuit = "Clubs";
+        break;
+      case "D":
+        cardSuit = "Diamonds";
+        break;
+      case "S":
+        cardSuit = "Spades";
+        break;
+      case "H":
+        cardSuit = "Hearts";
+        break;
+      default:
+        suitValidity = false;
+        cardSuit = null;
+        break;
+    }
+    if ((suitValidity = true) && (rankValidity = true)) {
+      System.out.println(cardRank + " of " + cardSuit + ".\n");
+    } else if (suitValidity = false) {
+      System.out.println("That's not a valid suit.\n");
+    } else if (rankValidity = false) {
+      System.out.println("That's not a valid rank.\n");
+    }
     }
     
     /*
