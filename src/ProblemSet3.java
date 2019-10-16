@@ -59,7 +59,7 @@ System.out.print("\nEnter an integer: ");
     } else {
       System.out.println("Zero.\n");
     }
-    
+  }  
     /*
      * Exercise 2.
      * 
@@ -75,7 +75,7 @@ System.out.print("Enter an integer: ");
     } else {
       System.out.println("Odd.\n");
     }
-    
+   }
     /*
      * Exercise 3.
      * 
@@ -185,7 +185,7 @@ System.out.print("Enter a letter grade: ");
       System.out.println("That's not a valid letter grade.\n");
     } else if (scoreValid == true) {
       double gpa = letterScore + signScore;
-      System.out.printf("Your GPA is %.2f.\n", gpa);
+      System.out.printf("Your GPA is %.2f.\n\n", gpa);
     }	
     }
     
