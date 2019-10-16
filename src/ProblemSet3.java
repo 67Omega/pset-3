@@ -401,7 +401,58 @@ System.out.print("Enter a temperature: ");
      */
     
     public void months() {        
-
+System.out.print("Enter a month: ");
+    String monthInput = in.next();
+    String monthToTest = monthInput.toUpperCase();
+    String numberOfDays;
+    String monthToThree = monthToTest.substring(0, 3);
+    System.out.println();
+    switch (monthToThree) {
+      case "JAN":
+        numberOfDays = "31";
+        break;
+      case "FEB":
+        numberOfDays = "28 or 29";
+        break;
+      case "MAR":
+        numberOfDays = "31";
+        break;
+      case "APR":
+        numberOfDays = "30";
+        break;
+      case "MAY":
+        numberOfDays = "31";
+        break;
+      case "JUN":
+        numberOfDays = "30";
+        break;
+      case "JUL":
+        numberOfDays = "31";
+        break;
+      case "AUG":
+        numberOfDays = "31";
+        break;
+      case "SEP":
+        numberOfDays = "30";
+        break;
+      case "OCT":
+        numberOfDays = "31";
+        break;
+      case "NOV":
+        numberOfDays = "30";
+        break;
+      case "DEC":
+        numberOfDays = "31";
+        break;
+      default:
+        numberOfDays = "invalid";
+        break;
+    }
+    if (numberOfDays == "invalid") {
+      System.out.println("That's not a valid month.\n");
+    } else {
+      System.out.println(numberOfDays + " days.\n");
+    }
     }
     
     /*
@@ -411,6 +462,31 @@ System.out.print("Enter a temperature: ");
      */
     
     public void salary() {
-
+System.out.print("Wage: ");
+    double hourlyWage = in.nextDouble();
+    System.out.print("Hours: ");
+    double hoursWorked = in.nextDouble();
+    System.out.println();
+    double overtimePay;
+    double normalPay;
+    double finalPay;
+    double overtimeRate = 1.5;
+    double hoursOvertime = hoursWorked - 40;
+    if (hoursWorked >= 40) {
+      overtimePay = hoursOvertime * (hourlyWage * overtimeRate);
+      normalPay = (hoursWorked - hoursOvertime) * hourlyWage;
+      finalPay = normalPay + overtimePay;
+    } else {
+      overtimePay = 0;
+      normalPay = hoursWorked * hourlyWage;
+      finalPay = normalPay;
+    }
+    if (hourlyWage < 0) {
+      System.out.println("Your wage must be greater than or equal to $0.00 per hour.\n");
+    } else if (hoursWorked < 0) {
+      System.out.println("Your hours must be greater than or equal to 0.0.\n");
+    } else {
+      System.out.printf("You'll make $%,.2f this week.\n\n", finalPay);
+    }
     }
 }
